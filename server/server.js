@@ -6,6 +6,8 @@ const connectionDB = require("./config/dbConnection");
 const courseRoute = require("./routes/courseRoute");
 const categoryRoute = require("./routes/categoryRoute");
 const courseDetailRoute = require("./routes/courseDetailRoute");
+const razorpayRoute = require("./routes/razorpayRoute");
+const courseOverviewRoute = require("./routes/courseOverviewRoute");
 const app = express();
 
 app.use(cors());
@@ -22,6 +24,8 @@ connectionDB();
 app.use("/api/course", courseRoute);
 app.use("/api/category", categoryRoute);
 app.use("/api/courseDetail", courseDetailRoute);
+app.use("/api/razorpay", razorpayRoute);
+app.use("/api/course-edu", courseOverviewRoute);
 
 const dirname = path.resolve();
 app.use("/public", express.static(path.join(dirname, "/public")));
